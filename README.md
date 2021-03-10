@@ -5,6 +5,7 @@
 In the project directory use `npm install` to download all packages and dependencies \
 and `npm start` to run the project locally.
 
+
 ## Technologies
 
 This project was created with React. For styling certain components I've used Material UI. \
