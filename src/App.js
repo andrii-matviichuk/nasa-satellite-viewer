@@ -1,24 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+
+import SearchBar from './components/SearchBar';
+import LeafletMap from './components/LeafletMap';
+import SatelliteImage from './components/SatelliteImage';
+import SearchHistory from './components/SearchHistory';
+
+import Grid from '@material-ui/core/Grid';
 
 function App() {
+  const [map, setMap] = useState(null);
+  const [searchHistory, setSearchHistory] = useState([]);
+  const [satelliteImageURL, setSatelliteImageURL] = useState(
+    searchHistory.length > 0 ? searchHistory[searchHistory.length - 1].img : ''
+  );
+  const [satelliteImageIsLoading, setSatelliteImageIsLoading] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid container>
+      <Grid item xs={12}>
+        <SearchBar
+          map={map}
+          setSatelliteImageIsLoading={setSatelliteImageIsLoading}
+          setSatelliteImageURL={setSatelliteImageURL}
+          searchHistory={searchHistory}
+          setSearchHistory={setSearchHistory}
+        />
+      </Grid>
+      <Grid item xs={12} sm={8}>
+        <LeafletMap setMap={setMap} />
+      </Grid>
+      <Grid container item xs={12} sm={4}>
+        <Grid item xs={12}>
+          <SatelliteImage
+            searchHistory={searchHistory}
+            satelliteImageURL={satelliteImageURL}
+            satelliteImageIsLoading={satelliteImageIsLoading}
+            setSatelliteImageIsLoading={setSatelliteImageIsLoading}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <SearchHistory
+            searchHistory={searchHistory}
+            setSearchHistory={setSearchHistory}
+          />
+        </Grid>
+      </Grid>
+    </Grid>
   );
 }
 

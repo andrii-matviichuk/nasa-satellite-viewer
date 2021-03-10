@@ -1,0 +1,148 @@
+/* As this is relative small project I've putted all css styles in one fil
+ * to not overcomplicate things. But of course in bigger projects I normally
+ * creating multiply css or scss files to have a proper structure.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #c4c4c4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* LeafletMap component */
+.leaflet-container {
+  max-width: 100%;
+  height: 84vh;
+  border: 1vh solid #333333;
+  z-index: 1;
+  border-radius: 8px;
+  margin: 1rem 0 1rem 1rem;
+}
+
+.leaflet-top .leaflet-control {
+  margin-top: 70vh;
+}
+
+/* SearchBar component */
+.search_bar_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 10vh;
+  min-width: 100%;
+  background: #333333;
+}
+
+.geocoder_container {
+  z-index: 2;
+  width: 240px;
+}
+
+.geocoder_container input {
+  max-width: 100%;
+  border-radius: 4px !important;
+}
+
+.date_text_field input {
+  height: auto;
+  background: #fff;
+  border-radius: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/* SatelliteImage component */
+.satellite_image_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  background: #333333;
+  border: 1vh solid #333333;
+  text-align: center;
+  border-radius: 8px;
+  margin: 1rem 1rem 0 1rem;
+}
+
+.satellite_image_container img {
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+/* SearchHistory component */
+.search_history_container {
+  height: 22vh;
+  background: #333;
+  border-radius: 8px;
+  margin: 0 1rem;
+  padding: 0.5rem;
+}
+
+.search_history_container h3 {
+  color: #fff;
+}
+
+.history_list {
+  overflow: auto;
+  height: 70%;
+  background-color: #ffffff;
+  border-radius: 4px;
+  margin-top: 0.5rem !important;
+  font-size: 0.4rem;
+}
+
+@media only screen and (max-width: 600px) {
+  /* LeafletMap component */
+  .leaflet-container {
+    margin-right: 1rem;
+    height: 45vh;
+  }
+
+  .leaflet-top .leaflet-control {
+    margin-top: 1rem;
+  }
+
+  /* SearchBar component */
+  .search_bar_container {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .date_text_field input {
+    width: 210px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 0.2rem;
+  }
+
+  /* SatelliteImage component */
+  .satellite_image_container {
+    height: 45vh;
+    margin-top: 0;
+    border-left: 1vh solid #333;
+  }
+
+  /* SearchHistory component */
+  .search_history_container {
+    margin-top: 1rem;
+    height: auto;
+  }
+
+  .search_history_container button {
+    font-size: 0.65rem;
+  }
+}
