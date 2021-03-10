@@ -41,12 +41,12 @@ function SearchBar({
         );
         setSatelliteImageURL(data.config.url);
         setSearchHistory([
-          ...searchHistory,
           {
             img: data.config.url,
             viewport: [newViewport.latitude, newViewport.longitude],
             date,
           },
+          ...searchHistory,
         ]);
       } catch (err) {
         setSatelliteImageURL('');
