@@ -10,9 +10,7 @@ import Grid from '@material-ui/core/Grid';
 function App() {
   const [map, setMap] = useState(null);
   const [searchHistory, setSearchHistory] = useState([]);
-  const [satelliteImageURL, setSatelliteImageURL] = useState(
-    searchHistory.length > 0 ? searchHistory[searchHistory.length - 1].img : ''
-  );
+  const [satelliteImageURL, setSatelliteImageURL] = useState('');
   const [satelliteImageIsLoading, setSatelliteImageIsLoading] = useState(false);
 
   return (
